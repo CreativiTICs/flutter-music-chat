@@ -9,11 +9,11 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: Container(
-      width: 300,
+      width: 200,
       margin: EdgeInsets.only(top: 40),
       child: Column(
         children: [
-          Image(image: AssetImage('assets/Creativitics.png')),
+          Image(image: AssetImage('assets/bubble.png')),
           SizedBox(
             height: 10,
           ),
