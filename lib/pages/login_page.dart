@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:music_chat/services/auth_service.dart';
+import 'package:music_chat/services/socket_service.dart';
 
 import 'package:music_chat/helpers/mostrar_alerta.dart';
 
@@ -55,6 +56,7 @@ class __FormState extends State<_Form> {
   @override
   Widget build(BuildContext context) {
     final authServices = Provider.of<AuthService>(context);
+    final socketService = Provider.of<SocketServices>(context);
     return Container(
       margin: EdgeInsets.only(top: 40),
       padding: EdgeInsets.symmetric(horizontal: 50),
@@ -82,6 +84,7 @@ class __FormState extends State<_Form> {
                         emailCtrl.text.trim(), passCtrl.text.trim());
                     if (loginOk) {
                       //navegar a otra pantalla y conectar al socket server
+                      socketService.connect();
                       Navigator.pushReplacementNamed(context, 'usuarios');
                     } else {
                       //Mostra Alerta
